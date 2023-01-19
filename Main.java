@@ -5,33 +5,25 @@ class Main{
 		int input;
 		System.out.println("""
 				Willkommen beim Rechenbot, wähle eine Kategorie.
-				0-Addition
-				1-Multiplikation
-				2-Division
-				3-Zufall (Mit mehreren Runden)
+				0-Dezimalrechnung
+				1-Bruchrechnung
 				""");
 		input = sc.nextInt();
 		switch (input) {
 			case 0:
-				practiceAdd();
-				break;
-			case 1:
-				practiceMult();
-				break;
-			case 2:
-				practiceDiv();
-				break;
-			case 3:
 				System.out.println("Gib die gewünschte rundenzahl an.");
 				int rounds = sc.nextInt();
 				practiceRand(rounds);
+				break;
+			case 1:
+				System.out.println("WIP");
 				break;
 			default:
 				System.out.println("Ungueltige eingabe.");
 		}
 	}
 	static void practiceAdd(){
-		double operators[] = createOperators();
+		double operators[] = createOperators(3);
 		double sum = 0.0;
 
 		for(double i: operators){
@@ -60,7 +52,7 @@ class Main{
 	}
 	static void practiceMult(){
 		double sum = 1.0;
-		double operators[] = createOperators();
+		double operators[] = createOperators(2);
 		for(double i: operators){
 			sum *= i;
 		}
@@ -87,7 +79,7 @@ class Main{
 		return;
 	}
 	static void practiceDiv(){
-		double operators[] = createOperators();
+		double operators[] = createOperators(2);
 		double sum = operators[0];
 		for(double i: operators){
 			if(i != sum){
@@ -105,7 +97,7 @@ class Main{
 					System.out.print(operators[i]);
 					break;
 				default:
-					System.out.print(operators[i] + " * ");
+					System.out.print(operators[i] + " / ");
 			}
 		}
 		double input = Double.parseDouble(sc.next());
@@ -114,7 +106,6 @@ class Main{
 		}else {
 			System.out.println(input + " ist falsch " + sum + " war die richtige antwort.");
 		}
-		return;
 	}
 	static void practiceRand(int rounds){
 		Random random = new Random();
@@ -136,9 +127,9 @@ class Main{
 			}
 		}
 	}
-	static double[] createOperators(){
+	static double[] createOperators(int bound){
 		Random random = new Random();
-		int nOperators = random.nextInt(2);
+		int nOperators = random.nextInt(bound-1);
 		nOperators = nOperators+2;
 		double operators[] = new double[nOperators];
 
