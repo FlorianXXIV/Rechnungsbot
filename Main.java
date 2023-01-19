@@ -1,6 +1,9 @@
+import Programm.Bruchrechnung;
+
 import java.util.*;
 class Main{
 	static Scanner sc = new Scanner(System.in);
+	static Bruchrechnung br = new Bruchrechnung();
 	public static void main(String[] args){
 		int input;
 		System.out.println("""
@@ -17,6 +20,7 @@ class Main{
 				break;
 			case 1:
 				System.out.println("WIP");
+				br.bruchrechnung();
 				break;
 			default:
 				System.out.println("Ungueltige eingabe.");
