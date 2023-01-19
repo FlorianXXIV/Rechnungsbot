@@ -11,7 +11,7 @@ class Main{
 		input = sc.nextInt();
 		switch (input) {
 			case 0:
-				System.out.println("Gib die gewünschte rundenzahl an.");
+				System.out.println("Gib die gewuenschte rundenzahl an.");
 				int rounds = sc.nextInt();
 				practiceRand(rounds);
 				break;
