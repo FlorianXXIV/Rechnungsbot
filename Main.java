@@ -23,10 +23,10 @@ class Main{
 		}
 	}
 	static void practiceAdd(){
-		double operators[] = createOperators(3);
-		double sum = 0.0;
+		int operators[] = createOperators(3);
+		int sum = 0;
 
-		for(double i: operators){
+		for(int i: operators){
 			sum += i;
 		}
 		System.out.println("Berechne: ");
@@ -42,7 +42,7 @@ class Main{
 					System.out.print(operators[i] + " + ");
 			}
 		}
-		double input = Double.parseDouble(sc.next());
+		int input = sc.nextInt();
 		if(input == sum){
 			System.out.println(input + " ist richtig!");
 		}else {
@@ -51,12 +51,11 @@ class Main{
 		return;
 	}
 	static void practiceMult(){
-		double sum = 1.0;
-		double operators[] = createOperators(2);
-		for(double i: operators){
+		int sum = 1;
+		int operators[] = createOperators(2);
+		for(int i: operators){
 			sum *= i;
 		}
-		sum = Math.round(sum * 100.0)/100.0;
 		System.out.println("Berechne: ");
 		for(int i = 0; i<=operators.length; i++){
 			switch (operators.length-i){
@@ -70,7 +69,7 @@ class Main{
 					System.out.print(operators[i] + " * ");
 			}
 		}
-		double input = Double.parseDouble(sc.next());
+		int input = sc.nextInt();
 		if(input == sum){
 			System.out.println(input + " ist richtig!");
 		}else {
@@ -79,9 +78,9 @@ class Main{
 		return;
 	}
 	static void practiceDiv(){
-		double operators[] = createOperators(2);
+		int operators[] = createOperators(2);
 		double sum = operators[0];
-		for(double i: operators){
+		for(int i: operators){
 			if(i != sum){
 				sum /= i;
 			}
@@ -127,15 +126,14 @@ class Main{
 			}
 		}
 	}
-	static double[] createOperators(int bound){
+	static int[] createOperators(int bound){
 		Random random = new Random();
 		int nOperators = random.nextInt(bound-1);
 		nOperators = nOperators+2;
-		double operators[] = new double[nOperators];
-
+		int operators[] = new int[nOperators];
 
 		for(int i = 0; i<nOperators;i++){
-			operators[i] = Math.round(Math.random() * 1000.0)/10.0;
+			operators[i] = random.nextInt(20) + 1;
 		}
 		return operators;
 	}
