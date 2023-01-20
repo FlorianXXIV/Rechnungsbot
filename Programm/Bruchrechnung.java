@@ -2,6 +2,11 @@ package Programm;
 
 import java.util.*;
 public class Bruchrechnung{
+    Scanner sc = new Scanner(System.in);
+    int sol[] = new int[2];
+    int input[] = new int[2];
+    String strInput;
+
     public void bruchrechnung(int rounds){
         Random rand = new Random();
         int randI = rand.nextInt(3);
@@ -27,16 +32,61 @@ public class Bruchrechnung{
     }
 
     void fracMult(){
-
+        int operators[][] = createOperators();
+        System.out.println("Berechne:");
+        System.out.println(operators[0][0] + "|" + operators[0][1] + " * " + operators[1][0] + "|" + operators[1][1]);
+        sol[0] = operators[0][0] * operators[1][0];
+        sol[1] = operators[0][1] * operators[1][1];
+        checkInput(sol);
     }
     void fracAdd(){
-
+        int operators[][] = createOperators();
+        System.out.println("Berechne:");
+        System.out.println(operators[0][0] + "|" + operators[0][1] + " + " + operators[1][0] + "|" + operators[1][1]);
+        if(operators[0][1] == operators[1][1]){
+            sol[0] = operators[0][0] + operators[1][0];
+            sol[1] = operators[0][1];
+        }else{
+            sol[0] = (operators[0][0]*operators[1][1]) + (operators[1][0]*operators[0][1]);
+            sol[1] = operators[0][1]*operators[1][1];
+        }
+        checkInput(sol);
     }
     void fracDiv(){
-
+        int operators[][] = createOperators();
+        System.out.println("Berechne:");
+        System.out.println(operators[0][0] + "|" + operators[0][1] + " / " + operators[1][0] + "|" + operators[1][1]);
+        sol[0] = operators[0][0]*operators[1][1];
+        sol[1] = operators[0][1]*operators[1][0];
+        checkInput(sol);
     }
-    void createOperators(){
-
+    int[][] createOperators(){
+        Random random = new Random();
+        int operators[][] = new int[2][2];
+        for(int i = 0; i<2; i++){
+            for(int j = 0; j<2;j++){
+                operators[i][j] = random.nextInt(20)+1;
+            }
+        }
+        return operators;
     }
+    void checkInput(int[] sol){
+        strInput = sc.nextLine();
+        input = toFrac(strInput);
 
+        if(input.equals(sol)){
+            System.out.println(input[0] + "|" + input[1] + " ist Korrekt!");
+        }else{
+            System.out.println(input[0] + "|" + input[1] + " ist Falsch!");
+            System.out.println(sol[0] + "|" + sol[1] + " waere Richtig!");
+        }
+    }
+    int[] toFrac(String fraction){
+        int[] frac = new int[2];
+        Scanner scanner = new Scanner(fraction).useDelimiter("\\|");
+        frac[0] = scanner.nextInt();
+        frac[1] = scanner.nextInt();
+
+        return frac;
+    }
 }
