@@ -4,23 +4,26 @@ import java.util.*;
 class Main{
 	static Scanner sc = new Scanner(System.in);
 	static Bruchrechnung br = new Bruchrechnung();
-	public static void main(String[] args){
+	public static void main(String[] args){ //Matrizenrechnung hinzufügen
 		int input;
+		int rounds;
 		System.out.println("""
 				Willkommen beim Rechenbot, wähle eine Kategorie.
 				0-Dezimalrechnung
 				1-Bruchrechnung
+				2-Matrizenrechnung
 				""");
 		input = sc.nextInt();
 		switch (input) {
 			case 0:
 				System.out.println("Gib die gewuenschte rundenzahl an.");
-				int rounds = sc.nextInt();
+				rounds = sc.nextInt();
 				practiceRand(rounds);
 				break;
 			case 1:
-				System.out.println("WIP");
-				br.bruchrechnung();
+				System.out.println("Gib die gewuenschte rundenzahl an.");
+				rounds = sc.nextInt();
+				br.bruchrechnung(rounds);
 				break;
 			default:
 				System.out.println("Ungueltige eingabe.");
