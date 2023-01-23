@@ -37,8 +37,7 @@ public class Bruchrechnung{
         System.out.println(operators[0][0] + "|" + operators[0][1] + " * " + operators[1][0] + "|" + operators[1][1]);
         sol[0] = operators[0][0] * operators[1][0];
         sol[1] = operators[0][1] * operators[1][1];
-        String sSol = fracSimplify(sol);
-        sol = toFrac(sSol);
+        sol = fracSimplify(sol);
         checkInput(sol);
     }
     void fracAdd(){
@@ -52,8 +51,7 @@ public class Bruchrechnung{
             sol[0] = (operators[0][0]*operators[1][1]) + (operators[1][0]*operators[0][1]);
             sol[1] = operators[0][1]*operators[1][1];
         }
-        String sSol = fracSimplify(sol);
-        sol = toFrac(sSol);
+        sol = fracSimplify(sol);
         checkInput(sol);
     }
     void fracDiv(){
@@ -62,8 +60,7 @@ public class Bruchrechnung{
         System.out.println(operators[0][0] + "|" + operators[0][1] + " / " + operators[1][0] + "|" + operators[1][1]);
         sol[0] = operators[0][0]*operators[1][1];
         sol[1] = operators[0][1]*operators[1][0];
-        String sSol = fracSimplify(sol);
-        sol = toFrac(sSol);
+        sol = fracSimplify(sol);
         checkInput(sol);
     }
     int[][] createOperators(){
@@ -97,16 +94,17 @@ public class Bruchrechnung{
         Scanner scanner = new Scanner(fraction).useDelimiter("\\|");
         frac[0] = scanner.nextInt();
         frac[1] = scanner.nextInt();
-
         return frac;
     }
 
-    String fracSimplify(int[] frac){
+    int[] fracSimplify(int[] frac){
         int gcd = gcd(frac[0],frac[1]);
-        return frac[0]/gcd + "|" + frac[1]/gcd;
+        int nenner = frac[0]/gcd;
+        int zaehler = frac[1]/gcd;
+        return new int[]{nenner,zaehler};
     }
     int gcd(int a, int b){
-        if(b==0) return a;
-        return gcd(a, b%a);
+        if(b<=0) return a;
+        return gcd(a, a%b);
     }
 }
