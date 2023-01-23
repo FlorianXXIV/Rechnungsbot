@@ -80,7 +80,7 @@ public class Bruchrechnung{
         if(input[0]/input[1] == sol[0]/sol[1]){
             if (input.equals(sol)){
                 System.out.println(input[0] + "|" + input[1] + " ist Korrekt!");
-            }else {
+            }else{
                 System.out.println(input[0] + "|" + input[1] + " ist Korrekt, aber");
                 System.out.println("es kann zu " + sol[0] + "|" + sol[1] + " gekuertzt werden.");
             }
@@ -99,12 +99,13 @@ public class Bruchrechnung{
 
     int[] fracSimplify(int[] frac){
         int gcd = gcd(frac[0],frac[1]);
+        System.out.println(gcd);
         int nenner = frac[0]/gcd;
         int zaehler = frac[1]/gcd;
         return new int[]{nenner,zaehler};
     }
     int gcd(int a, int b){
-        if(b<=0) return a;
-        return gcd(a, a%b);
+        if(b==0) return a;
+        return gcd(b, a%b);
     }
 }
