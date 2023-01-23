@@ -28,7 +28,7 @@ public class Bruchrechnung{
                 break;
             default:
                 System.out.println("Unbekannter Fehler.");
-                System.out.println("bruchrechnung() konnte keinen zufälligen Integer zwischen 0 und 3 generieren.");
+                System.out.println("bruchrechnung() konnte keinen zufaelligen Integer zwischen 0 und 3 generieren.");
         }
     }
 
