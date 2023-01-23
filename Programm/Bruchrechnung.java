@@ -9,7 +9,8 @@ public class Bruchrechnung{
 
     public void bruchrechnung(int rounds){
         Random rand = new Random();
-        int randI = rand.nextInt(3);
+        int randI;
+        randI = rand.nextInt(3);
         System.out.println("""
                 Bei der Bruchrechnung sollten alle ergebnisse auch in form eines bruches angegeben werden.
                 Diese werden in der form zaehler|nenner angegeben.
