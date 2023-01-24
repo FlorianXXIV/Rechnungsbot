@@ -11,7 +11,7 @@ class Main{
 				Willkommen beim Rechenbot, wähle eine Kategorie.
 				0-Dezimalrechnung
 				1-Bruchrechnung
-				2-Matrizenrechnung
+				2-Matrizenrechnung (WIP)
 				""");
 		input = sc.nextInt();
 		switch (input) {
