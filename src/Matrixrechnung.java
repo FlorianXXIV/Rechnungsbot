@@ -1,5 +1,3 @@
-package Programm;
-
 import java.util.*;
 public class Matrixrechnung {
     Scanner sc = new Scanner(System.in);

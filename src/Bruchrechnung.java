@@ -1,5 +1,3 @@
-package Programm;
-
 import java.util.*;
 public class Bruchrechnung{
     Scanner sc = new Scanner(System.in);
