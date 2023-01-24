@@ -1,6 +1,6 @@
 # Rechnungsbot
 ### Ein Programm mit dem man Kopfrechnen üben kann.
->**ver 0.2.0**
+>**ver 0.2.1**
 
 ### Versionierung
 Funktionelle Version:
